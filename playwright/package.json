@@ -1,7 +1,6 @@
 {
   "name": "jsaqa_3_2",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "playwright"
@@ -9,7 +8,12 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.12.3",
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
     "playwright": "^1.12.3"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
 }
