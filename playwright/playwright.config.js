@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-// @ts-nocheck
+// @ts-check
 const { devices } = require("@playwright/test");
 
 /**
@@ -15,7 +14,7 @@ const { devices } = require("@playwright/test");
 const config = {
   testDir: "./tests",
   /* Maximum time one test can run for. */
-  timeout: 60 * 1000,
+  timeout: 30 * 1000,
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -36,7 +35,12 @@ const config = {
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
-    actionTimeout: 0,
+    headless: false,
+    viewport: { width: 1280, height: 720 },
+    actionTimeout: 30000,
+    launchOptions: {
+      slowMo: 300,
+    },
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
 
@@ -53,19 +57,19 @@ const config = {
       },
     },
 
-    /*{
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-      },
-    },
+    // {
+    //   name: "firefox",
+    //   use: {
+    //     ...devices["Desktop Firefox"],
+    //   },
+    // },
 
-    {
-      name: "webkit",
-      use: {
-        ...devices["Desktop Safari"],
-      },
-    },*/
+    // {
+    //   name: "webkit",
+    //   use: {
+    //     ...devices["Desktop Safari"],
+    //   },
+    // },
 
     /* Test against mobile viewports. */
     // {
